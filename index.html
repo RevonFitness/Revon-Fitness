@@ -137,11 +137,139 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: transform 0.3s, background 0.3s;
+            cursor: pointer;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .detail-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .detail-page.active {
+            display: block;
+        }
+        
+        .detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+            position: relative;
+        }
+        
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .detail-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .detail-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .detail-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .detail-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .detail-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .detail-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .detail-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+        
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .detail-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-list li::before {
+            content: "✓";
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.6rem;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         
         .feature-icon {
@@ -374,19 +502,19 @@
         </p>
         
         <div class="features" id="features">
-            <div class="feature-card">
+            <div class="feature-card" onclick="showDetail('workouts')">
                 <div class="feature-icon">🎯</div>
                 <h3>Smart Workouts</h3>
                 <p>AI-powered workout plans tailored to your fitness level, goals, and available equipment.</p>
             </div>
             
-            <div class="feature-card">
+            <div class="feature-card" onclick="showDetail('tracking')">
                 <div class="feature-icon">📊</div>
                 <h3>Progress Tracking</h3>
                 <p>Visualize your journey with detailed analytics, body measurements, and performance metrics.</p>
             </div>
             
-            <div class="feature-card">
+            <div class="feature-card" onclick="showDetail('nutrition')">
                 <div class="feature-icon">🍎</div>
                 <h3>Nutrition Guide</h3>
                 <p>Custom meal plans and calorie tracking to fuel your workouts and optimize results.</p>
@@ -445,6 +573,145 @@
         </p>
     </footer>
     
+    <div class="detail-page" id="workouts-detail">
+        <div class="detail-container">
+            <button class="back-button" onclick="hideDetail('workouts')">← Back to Home</button>
+            
+            <div class="detail-header">
+                <div class="detail-icon">🎯</div>
+                <h2 class="detail-title">Smart Workouts</h2>
+                <p class="detail-subtitle">Personalized training programs powered by artificial intelligence</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Intelligent Exercise Selection</h3>
+                <p>Revon Fitness uses advanced AI algorithms to analyze your fitness level, goals, available equipment, and past performance to create the perfect workout plan for you. No more guessing what exercises to do or how many sets and reps to perform.</p>
+                <p>Our smart system adapts in real-time based on your feedback, energy levels, and progress. If you're feeling strong, it will challenge you more. If you're recovering, it will adjust accordingly.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Key Features</h3>
+                <ul class="detail-list">
+                    <li>Personalized workout routines based on your fitness goals (strength, muscle gain, weight loss, endurance)</li>
+                    <li>Equipment-based filtering - works with gym equipment, home equipment, or bodyweight only</li>
+                    <li>Difficulty progression that automatically increases as you get stronger</li>
+                    <li>Video demonstrations and form tips for every exercise</li>
+                    <li>Rest timer and workout logging built into every session</li>
+                    <li>Alternative exercise suggestions if you can't perform a movement</li>
+                    <li>Workout history and calendar to track your training consistency</li>
+                </ul>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Training Styles Available</h3>
+                <p>Choose from multiple training methodologies including strength training, hypertrophy (muscle building), HIIT (High-Intensity Interval Training), circuit training, functional fitness, and sport-specific conditioning. Each style is optimized for maximum results while maintaining safety and proper form.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Smart Recovery Integration</h3>
+                <p>The app doesn't just plan your workouts - it plans your recovery too. Based on workout intensity and muscle groups targeted, our AI suggests optimal rest days and active recovery sessions to prevent overtraining and reduce injury risk.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detail-page" id="tracking-detail">
+        <div class="detail-container">
+            <button class="back-button" onclick="hideDetail('tracking')">← Back to Home</button>
+            
+            <div class="detail-header">
+                <div class="detail-icon">📊</div>
+                <h2 class="detail-title">Progress Tracking</h2>
+                <p class="detail-subtitle">Comprehensive analytics to visualize your fitness transformation</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>See Your Progress in Real-Time</h3>
+                <p>Track every aspect of your fitness journey with detailed charts, graphs, and statistics. Revon Fitness captures workout data, body measurements, strength gains, and personal records to give you a complete picture of your progress over time.</p>
+                <p>Our visual analytics make it easy to see trends, identify plateaus, and celebrate milestones. You'll stay motivated as you watch your numbers improve week after week.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>What You Can Track</h3>
+                <ul class="detail-list">
+                    <li>Weight, body fat percentage, and body measurements (chest, waist, arms, legs)</li>
+                    <li>Strength progression for every exercise with personal record tracking</li>
+                    <li>Workout volume (total weight lifted) and training frequency</li>
+                    <li>Cardiovascular improvements including distance, pace, and heart rate data</li>
+                    <li>Before and after progress photos with comparison tools</li>
+                    <li>Workout streak tracking to build consistency habits</li>
+                    <li>Custom goals with progress indicators and achievement badges</li>
+                </ul>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Advanced Analytics Dashboard</h3>
+                <p>Your personal analytics dashboard provides insights into your training patterns, recovery status, and areas for improvement. See which muscle groups need more attention, identify your strongest lifts, and understand how different variables affect your performance.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Performance Trends</h3>
+                <p>Historical data analysis helps you understand your fitness trajectory. Compare your current performance to previous months, identify seasonal patterns in your training, and use data-driven insights to optimize your approach. Export your data at any time for personal records or to share with trainers.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Social Features</h3>
+                <p>Share your achievements with friends, join challenges, and compare your progress with the Revon community. Friendly competition and social accountability help keep you motivated and consistent with your training.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detail-page" id="nutrition-detail">
+        <div class="detail-container">
+            <button class="back-button" onclick="hideDetail('nutrition')">← Back to Home</button>
+            
+            <div class="detail-header">
+                <div class="detail-icon">🍎</div>
+                <h2 class="detail-title">Nutrition Guide</h2>
+                <p class="detail-subtitle">Fuel your workouts and optimize your results with smart nutrition</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Personalized Meal Planning</h3>
+                <p>Nutrition is 50% of the fitness equation. Revon Fitness provides customized meal plans designed to support your specific goals whether you're building muscle, losing fat, or improving athletic performance. Our nutrition system takes the guesswork out of eating for fitness.</p>
+                <p>Based on your caloric needs, dietary preferences, allergies, and goals, we generate meal plans with recipes, shopping lists, and prep instructions. Every meal is optimized for the right balance of protein, carbs, and healthy fats.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Nutrition Features</h3>
+                <ul class="detail-list">
+                    <li>Automatic calorie and macro calculation based on your goals and activity level</li>
+                    <li>Customizable meal plans for any dietary preference (omnivore, vegetarian, vegan, keto, paleo)</li>
+                    <li>Extensive food database with barcode scanning for easy logging</li>
+                    <li>Recipe library with hundreds of healthy, high-protein meals</li>
+                    <li>Meal prep guides and grocery shopping lists organized by store section</li>
+                    <li>Restaurant and fast food database for eating out without breaking your plan</li>
+                    <li>Water intake tracking with smart reminders throughout the day</li>
+                    <li>Supplement recommendations based on your training style and goals</li>
+                </ul>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Smart Calorie Tracking</h3>
+                <p>Log your meals in seconds with our intuitive food diary. Use quick add buttons for frequent foods, scan barcodes to instantly pull nutrition data, or search our database of over 1 million foods. The app learns your eating patterns and suggests meals you commonly eat to speed up logging.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Macro Targets & Timing</h3>
+                <p>Get precise macronutrient targets (protein, carbs, fats) calculated for your body type and goals. Our system also provides nutrient timing recommendations - what to eat before workouts for energy and after workouts for recovery. You'll learn how to properly fuel your training for maximum results.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Nutrition Coaching</h3>
+                <p>Access built-in nutrition education with articles, videos, and tips from certified nutritionists. Learn about proper portion sizes, how to read nutrition labels, meal timing strategies, and evidence-based nutrition principles. Transform your relationship with food and build sustainable eating habits.</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>Integration with Training</h3>
+                <p>Your nutrition plan automatically adjusts based on your workout schedule. On training days, you'll get more calories to fuel performance and recovery. On rest days, the app adjusts your targets to match your lower energy expenditure. This intelligent syncing ensures you're always eating the right amount for your activity level.</p>
+            </div>
+        </div>
+    </div>
+    
     <script>
         const particlesContainer = document.getElementById('particles');
         for (let i = 0; i < 30; i++) {
@@ -455,6 +722,16 @@
             particle.style.animationDelay = Math.random() * 6 + 's';
             particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
             particlesContainer.appendChild(particle);
+        }
+        
+        function showDetail(type) {
+            document.getElementById(type + '-detail').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideDetail(type) {
+            document.getElementById(type + '-detail').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
         
         function handleSubmit(e) {
