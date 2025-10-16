@@ -404,20 +404,6 @@
                 font-weight: 600;
             }
 
-            /* Status message */
-            .status-message {
-                margin-top: 2rem;
-                padding: 1rem;
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 10px;
-                display: none;
-            }
-
-            .status-message.show {
-                display: block;
-                animation: slideDown 0.5s ease-out;
-            }
-
             /* Footer */
             footer {
                 position: relative;
@@ -563,23 +549,19 @@
                 <h2 style="font-size: 2.5rem; margin-bottom: 1rem">
                     Be the First to Know
                 </h2>
-                <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem">
+                <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem">
                     Join the waitlist and get exclusive early access when we
                     launch
                 </p>
-                <p
-                    style="
-                        color: rgba(255, 255, 255, 0.6);
-                        font-size: 0.85rem;
-                        margin-bottom: 2rem;
-                    "
-                >
-                    *Form not functional yet - still in development
-                </p>
 
-                <form class="email-form" onsubmit="handleSubmit(event)">
+                <form
+                    class="email-form"
+                    action="https://formspree.io/f/xqaynpyd"
+                    method="POST"
+                >
                     <input
                         type="email"
+                        name="email"
                         class="email-input"
                         placeholder="Enter your email address"
                         required
@@ -589,8 +571,6 @@
                         Join Waitlist
                     </button>
                 </form>
-
-                <div class="status-message" id="statusMessage"></div>
 
                 <p
                     style="
@@ -970,25 +950,6 @@
                     .getElementById(type + "-detail")
                     .classList.remove("active");
                 document.body.style.overflow = "auto";
-            }
-
-            // Handle form submission
-            function handleSubmit(e) {
-                e.preventDefault();
-                const email = document.getElementById("emailInput").value;
-                const statusMessage = document.getElementById("statusMessage");
-
-                // Show success message
-                statusMessage.textContent = `🎉 Thanks for joining! We'll notify ${email} when we launch.`;
-                statusMessage.className = "status-message show";
-
-                // Reset form
-                document.getElementById("emailInput").value = "";
-
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    statusMessage.classList.remove("show");
-                }, 5000);
             }
 
             // Smooth scrolling
