@@ -10,6 +10,22 @@ for (let i = 0; i < 30; i++) {
   particlesContainer.appendChild(particle);
 }
 
+// Sticky header on scroll
+const header = document.querySelector("header");
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+  
+  lastScroll = currentScroll;
+});
+
 // Show detail page
 function showDetail(type) {
   document.getElementById(type + "-detail").classList.add("active");
@@ -18,8 +34,14 @@ function showDetail(type) {
 
 // Hide detail page
 function hideDetail(type) {
-  document.getElementById(type + "-detail").classList.remove("active");
-  document.body.style.overflow = "auto";
+  const detailPage = document.getElementById(type + "-detail");
+  detailPage.style.animation = "fadeOut 0.3s ease-out";
+  
+  setTimeout(() => {
+    detailPage.classList.remove("active");
+    detailPage.style.animation = "";
+    document.body.style.overflow = "auto";
+  }, 300);
 }
 
 // Smooth scrolling
