@@ -54,6 +54,10 @@ header {
     align-items: center;
     transition: all 0.3s ease;
     background: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 header.scrolled {
