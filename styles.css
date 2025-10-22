@@ -6,7 +6,7 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #111c5c 0%, #124682 100%);
     color: #fff;
     overflow-x: hidden;
 }
@@ -54,14 +54,10 @@ header {
     align-items: center;
     transition: all 0.3s ease;
     background: transparent;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 header.scrolled {
-    background: rgba(102, 126, 234, 0.95);
+    background: rgba(17, 28, 92, 0.95);
     backdrop-filter: blur(10px);
     padding: 1rem 5%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -75,10 +71,6 @@ header.scrolled {
     align-items: center;
     gap: 10px;
     transition: font-size 0.3s ease;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 header.scrolled .logo {
@@ -94,10 +86,6 @@ header.scrolled .logo {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 nav a {
@@ -106,10 +94,6 @@ nav a {
     margin-left: 2rem;
     font-weight: 500;
     transition: color 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 nav a:hover {
@@ -124,10 +108,6 @@ nav a:hover {
     margin: 0 auto;
     padding: 8rem 5% 4rem;
     text-align: center;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .badge {
@@ -179,10 +159,6 @@ h1 {
     gap: 2rem;
     margin: 5rem 0;
     animation: slideUp 0.8s ease-out 0.6s backwards;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .feature-card {
@@ -195,10 +171,6 @@ h1 {
         transform 0.3s,
         background 0.3s;
     cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .feature-card:hover {
@@ -218,10 +190,6 @@ h1 {
     z-index: 1000;
     overflow-y: auto;
     animation: fadeIn 0.3s ease-out;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .detail-page.active {
@@ -406,7 +374,6 @@ h1 {
     font-size: 1rem;
     outline: none;
     transition: border 0.3s;
-    
 }
 
 .email-input::placeholder {
@@ -430,10 +397,6 @@ h1 {
         transform 0.3s,
         box-shadow 0.3s;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .cta-button:hover {
@@ -462,10 +425,6 @@ h1 {
     transition:
         background 0.3s,
         transform 0.3s;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .store-button:hover {
@@ -500,10 +459,6 @@ footer {
     padding: 3rem 5%;
     color: rgba(255, 255, 255, 0.7);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .social-links {
